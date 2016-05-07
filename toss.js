@@ -1,76 +1,40 @@
 console.log("Hello, my name is Salman Shah the creator of this online version of the game hand cricket");
 
-var userChoice1 = prompt ("Do you choose Odd OR Even?");
+var userChoice1="";
+while(userChoice1!="even" && userChoice1!="odd")		//prevent from entring invalid input...
+	userChoice1 = prompt ("Do you choose odd OR even?");
+console.log("User entered : "+userChoice1);			
 
-var userChoice = prompt("Choose  Your Number");
-var computerChoice = Math.random();
+var userChoice = parseInt(prompt("Choose  Your Number"));	//use parseInt() to  convert string to integer...
 
-if (computerChoice <= 0.17) 
-{
-	computerChoice = 1;
-} 
-
-else if(computerChoice <= 0.34 && computerChoice >= 0.18) 
-{
-	computerChoice = 2;
-} 
-
-else if(computerChoice <= 0.50 && computerChoice > 0.34)
-{
-	computerChoice = 3;
-} 
-
-else if(computerChoice <= 0.67 && computerChoice > 0.50)
-{
-	computerChoice = 4;
-} 
-
-else if(computerChoice <= 0.84 && computerChoice > 0.67)
-{
-	computerChoice = 5;
-} 
-
-else
-{
-	computerChoice = 6;
-} 
-
+var computerChoice = Math.floor(Math.random()*6);		//Math.random() returns value [0,1).
+								//So, [0,1)*6 = [0,6).
+								//Math.floor() to make it integer from 0 to 5
+computerChoice++;						//(int 0 to 5) +1 = int 1 to 6
 console.log("Computer: " + computerChoice);
 
 var tossChoice = userChoice + computerChoice;
 
-console.log(tossChoice);
+console.log("tossCoice : "+tossChoice);
 
-if (tossChoice % 2 == 0 && userChoice == "even")
-{
-    var usertossChoice = prompt("Do you want to Bat or Bowl?")  
-    }
+var usertossCoice="";
 
-else if (tossChoice % 2 == 1 && userChoice == "odd")
-{
-    var usertossChoice = prompt("Do you want to bat or bowl?")  
-    }
-
-else 
-{
-    
-    tossChoice1 = Math.random();
-    if(tossChoice1 <= 0.50)
-    {
-    var usertossChoice = "bat";
-        }
-        
+if ( (tossChoice % 2 == 0 && userChoice1 == "even") || (tossChoice % 2 == 1 && userChoice1 == "odd") )
+     while(usertossChoice!="bat" && usertossChoice!="bowl")
+	     usertossChoice = prompt("Do you want to Bat or Bowl?");  
+else{
+    tossChoice1 = Math.floor(Math.random()*2);
+    if(tossChoice1==0)
+	    var usertossChoice = "bat";
     else 
-    {
-        var usertosssChoice = "bowl"
-        }
-    
-    }
+        var usertossChoice = "bowl";
+}
 
-console.log("You have to" + userTosschoice + "first");
+console.log("You have to " + usertossChoice + " first");
+alert("You have to " + usertossChoice + " first");
 
-if usertossChoice == "bat"
-	var c = 1;
-	
+if(usertossChoice == "bat")
+	var c = 1;	
 else 
 	var c = 0;
+
